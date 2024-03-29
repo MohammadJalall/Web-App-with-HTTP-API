@@ -1,0 +1,42 @@
+
+Codes used with s3 bucket:
+Edit S3 Bucket Policy: used the following code:
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::items-frontend-static-hosting/*"
+        }
+    ]
+}
+
+
+Edit bucket CORS configuration:
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+
+
+Routs created on API Gateway configuration:
+ /items (OPTIONS, GET, PUT) and /items/{id} (OPTIONS, DELETE, GET)
+    GET /items
+    PUT /items
+    GET /items/{id}
+    DELETE(/items/{id}
+    OPTIONS /items
+    OPTIONS /items/{id}
